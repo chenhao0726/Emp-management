@@ -13,8 +13,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-<div class="table-responsive" style="padding: 50px 50px 100px 100px">
-    <table class="table table-sm table-bordered table-hover">
+<%--width: 800px; height: 500px; background: #eee; border: 1px solid rgb(204, 204, 204); position: absolute; left: 50%;top: 50%; transform: translate(-50%,-50%);--%>
+<%--style="padding: 50px 50px 100px 100px"--%>
+<div class="table-responsive" style="padding: 50px 50px 100px 100px;">
+    <%--table-sm--%>
+    <table class="table table-sm table-bordered table-hover" style="text-align: center">
         <thead>
         <tr>
 <%--            <th scope="col">#</th>--%>
@@ -30,7 +33,7 @@
             <th scope="col">电话</th>
             <th scope="col">工资</th>
             <th scope="col">地址</th>
-            <th scope="col">操作</th>
+            <th scope="col" style="width: 110px;">操作</th>
         </tr>
         </thead>
         <tbody>
@@ -45,10 +48,10 @@
                 <td>${e.salary}</td>
                 <td>${e.address}</td>
                 <td>
-                    <input type="button" class="btn btn-sm btn-info" value="修改" style="font-size: 10px;">
-                    <input type="button" class="btn btn-sm btn-danger" value="删除" style="font-size: 10px;">
+                    <input type="button" class="btn btn-sm btn-info" value="修改" style="font-size: 7px;">
+                    <input type="button" class="btn btn-sm btn-danger" value="删除" style="font-size: 7px;">
                 </td>
-                <td><a href="">修改</a>|<a href="">删除</a></td>
+                <%--<td><a href="">修改</a>|<a href="">删除</a></td>--%>
             </tr>
             </c:forEach>
         <tr>
@@ -60,29 +63,10 @@
             <td>Otto</td>
             <td>@mdo</td>
             <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <td>
+                <input type="button" class="btn btn-sm btn-info" value="修改" style="font-size: 7px;">
+                <input type="button" class="btn btn-sm btn-danger" value="删除" style="font-size: 7px;">
+            </td>
         </tr>
     </table>
 </div>
