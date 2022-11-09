@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+	mapper: 根元素  sql配置文件的根元素只能是 mapper
+	namespace :命名空间	
+				告诉项目 通过什么路径能够找到我们的mapper文件		
+ -->
+<mapper namespace="com.chen.mapper.EmployeeMapper">
+    <!--
+		select:表示查询语句
+		id :  是这个sql的唯一标识 一般和mapper中的方法名一致
+		parameterType: 参数的类型
+		resultType: 返回值类型
+		怎么找到对应的sql语句
+		namespace + id
+	 -->
+
+<!--    Employee selectById(Long id);-->
+    <select id="selectById" parameterType="long" resultType="employee">
+        select * from t_employee where id=#{id}
+    </select>
+
+<!--    List<Employee> selectAll();-->
+    <select id="selectAll" resultType="employee">
+        select * from t_employee
+    </select>
+<!--    int insert(Employee employee);-->
+    <insert id="insert" parameterType="employee">
+        insert into
+            t_employee(`name`,password,age,gender,phone,salary,address,dept_id)
+        value (#{name},#{password},#{age},#{gender},#{phone},#{salary},#{address},#{dept_id})
+    </insert>
+
+<!--    int update(Employee employee);-->
+    <update id="update" parameterType="employee">
+        update
+            t_employee
+        set
+            `name`=#{name},
+            password=#{password},
+            age=#{age},
+            gender=#{gender},
+            phone=#{phone},
+            salary=#{salary},
+            address=#{address},
+            dept_id=#{dept_id}
+        where id=#{id}
+    </update>
+
+<!--    int deleteById(Long id);-->
+    <delete id="deleteById" parameterType="long">
+        delete from t_employee where id=#{id}
+    </delete>
+
+</mapper>
