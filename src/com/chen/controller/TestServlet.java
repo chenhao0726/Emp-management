@@ -21,6 +21,6 @@ public class TestServlet extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<Employee> employeeList = service.selectAll();
         req.getSession().setAttribute("list",employeeList);
-        req.getRequestDispatcher("/table.jsp").forward(req,resp);
+        req.getRequestDispatcher("/WEB-INF/views/emp/table.jsp").forward(req,resp);
     }
 }

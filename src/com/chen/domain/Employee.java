@@ -10,15 +10,27 @@ public class Employee {
     private Integer age;
     private Integer gender;
     private String phone;
-    private BigDecimal salary;
+    private Double salary;
     private String address;
     private Integer dept_id;
 
     public Employee() {
+
     }
 
-    public Employee(Long id, String name, String password, Integer age, Integer gender, String phone, BigDecimal salary, String address, Integer dept_id) {
+    public Employee(Long id, String name, String password, Integer age, Integer gender, String phone, Double salary, String address, Integer dept_id) {
         this.id = id;
+        this.name = name;
+        this.password = password;
+        this.age = age;
+        this.gender = gender;
+        this.phone = phone;
+        this.salary = salary;
+        this.address = address;
+        this.dept_id = dept_id;
+    }
+
+    public Employee(String name, String password, Integer age, Integer gender, String phone, Double salary, String address, Integer dept_id) {
         this.name = name;
         this.password = password;
         this.age = age;
@@ -77,11 +89,11 @@ public class Employee {
         this.phone = phone;
     }
 
-    public BigDecimal getSalary() {
+    public Double getSalary() {
         return salary;
     }
 
-    public void setSalary(BigDecimal salary) {
+    public void setSalary(Double salary) {
         this.salary = salary;
     }
 
