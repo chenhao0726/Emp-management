@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Enumeration;
 import java.util.List;
 
 @WebServlet("/emp")
@@ -80,17 +81,21 @@ public class EmployeeServlet extends HttpServlet {
 
     public void input(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");
+        HttpSession session = req.getSession();
         // 判断id是否存在
         if (!"".equals(id) && id != null) {
             System.out.println("======id存在====");
             Employee employee = service.selectById(Long.parseLong(id));
-            req.getSession().setAttribute("emp",employee);
+            session.setAttribute("emp",employee);
         }
 //        req.getSession().invalidate();
-        String id2 = req.getParameter("id");
-        String name = req.getParameter("name");
-        System.out.println("==========>" + id2);
-        System.out.println("==========>" + name);
+        Enumeration<String> e = session.getAttributeNames();
+        while(e.hasMoreElements()){
+            String sessionName=(String)e.nextElement();
+            System.out.println("存在的session有："+sessionName);
+//            session.removeAttribute(sessionName);
+        }
         req.getRequestDispatcher("WEB-INF/views/emp/empsave.jsp").forward(req,resp);
+        session.removeAttribute("emp");
     }
 }
